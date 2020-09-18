@@ -1,0 +1,22 @@
+body {
+    margin:0;
+    padding:0;
+}
+
+.sideBar{
+    background-color: rgb(230, 227, 227);
+    height:80vh;
+    width:100vh;
+    border-radius:5px;
+    padding:10px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:80px;
+    background:rgb(50, 50, 58);
+    color:white;
+    margin-bottom:20px;
+}
