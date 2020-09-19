@@ -46,13 +46,16 @@ button {
     border:2px solid grey;
     padding:20px;
     line-height:50px;
+    display:none;
 }
 
 #fiveDayForecast{
-    background-color:green;
     width: 100vh;
     height: 40vh;
+    padding:20px;
+    line-height:50px;
 }
+
 
 #uvText {
     color:white;
@@ -61,10 +64,35 @@ button {
     border-radius:5px;
 }
 
-#cityName {
+#cityName, #forecastHeader{
+    margin-bottom:10px;
     font-size:30px;
 }
 
 #delete {
     margin-left:10px;
+}
+
+.weatherBox {
+    width:90%;
+    margin:auto;
+  
+}
+
+.col-2 {
+    background:#007bff;
+    font:white;
+    height:25vh;
+    margin: 0px 5px;
+    border-radius: 5px;
+    display:none;
+}
+
+#day1, #day2, #day3, #day4, #day5 {
+    color:white;
+}
+
+.dayHeader {
+    font-size:20px;
+    font-weight:bold;
 }
