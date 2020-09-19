@@ -6,6 +6,9 @@ var cityArr = storedArr;
 
 var today = moment().format("MMM Do YY");     
 
+
+
+
 // if the local storage is empty, load an empty array
 if (!storedArr){
     var cityArr = []
@@ -34,7 +37,6 @@ function displayForecast(){
 
     $(".col-2").css("display","block");
     
-
     var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearched + "&appid=" + apiKey;
     console.log(queryURL);
     
@@ -141,7 +143,7 @@ function displayForecast(){
 // retrieve the weather info and display
 
 function buildQueryURL(){
-    var apiKey = "d9b320bb362508aced86c6462e027c00"
+    var apiKey = "d9b320bb362508aced86c6462e027c00";
     var citySearched = $("#userInput").val().trim();
 
     $("#currentWeather").css("display","block");
@@ -210,6 +212,7 @@ function buildQueryURL(){
 
         if(!citySearched){
             alert("Your input is not valid. Please try again!");
+            return;
         } else {
         cityArr.push(citySearched);
         
@@ -235,14 +238,21 @@ function buildQueryURL(){
                 $(".list-group").append(li);
         }};
         }
-       
+        // $(".list-group-item").on("click", function(event){
+        //     event.preventDefault();
+        //     var cityClicked = $(this).text();
+        //     buildQueryURL();
+        // })
+
         // run the function to display weather
         buildQueryURL();
 
          // clears the text input 
         $("#userInput").val('');
        
-})
+});
+
+
 
 // $("#delete").on("click", function(event){
 //     event.preventDefault();
