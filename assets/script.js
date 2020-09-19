@@ -13,28 +13,66 @@ if (!storedArr){
 
 $(document).ready(function(){
 
-    console.log(rawStoredArr);
-    console.log(storedArr);
-
+    // console.log(rawStoredArr);
+    // console.log(storedArr);
+    if (storedArr !== false) {
     for (var i = 0; i < storedArr.length; i++){
         var li = $("<li>");
         li.addClass("list-group-item");
         li.text(storedArr[i]);
         $(".list-group").append(li);
-
-    // jQuery.each(storedArr, function(){
-    //     var li = $("<li>");
-    //     li.addClass("list-group-item");
-    //     li.text(storedArr);
-    //     $(".list-group").append(li);    
     }
+    }
+
     localStorage.setItem("cities", JSON.stringify(cityArr));
 })
-// })
+
+
+// retrieve the weather info and display
+
+function buildQueryURL(){
+    var apiKey = "d9b320bb362508aced86c6462e027c00"
+    var citySearched = $("#userInput").val().trim();
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySearched + "&appid=" + apiKey;
+
+    $.ajax({
+        url:queryURL,
+        method:"GET"
+    }).then(function(response){
+
+        console.log(citySearched);
+        console.log(queryURL);
+
+        var countryName = response.sys.country
+        var temperature = (response.main.temp - 273.15).toFixed(2) // from kelvin (K) to celcius (C)
+    
+        var humidity = response.main.humidity
+        var windSpeed = response.wind.speed
+        //var uvIndex =  
+
+        $("#cityName").text(citySearched + " , " + countryName);
+        $("#temperature").text("Temperature : "+ temperature + " Celsius");
+        $("#humidity").text("Humidity : " + humidity + " %");
+        $("#windSpeed").text("Wind Speed : " + windSpeed + " meters/second(s)");
+
+
+       
+
+
+    
+
+    
 
 
 
-function displayWeather(){
+})};
+
+
+function generateURL(){
+    var queryURL = buildQueryURL();
+
+    
  
 }
 
@@ -47,8 +85,8 @@ function displayWeather(){
         } else {
         cityArr.push(citySearched);
         
-        console.log(cityArr);
-        console.log(cityArr.length);
+        // console.log(cityArr);
+        // console.log(cityArr.length);
 
         // save in local storage
 
@@ -69,12 +107,13 @@ function displayWeather(){
                 $(".list-group").append(li);
         }};
         }
-        // clears the text input 
-
-        $("#userInput").val('');
-
+       
         // run the function to display weather
-        displayWeather();
+        generateURL();
+
+         // clears the text input 
+        $("#userInput").val('');
+       
 })
 
 

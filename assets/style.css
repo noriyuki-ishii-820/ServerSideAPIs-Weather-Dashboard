@@ -26,7 +26,23 @@ body {
     margin-bottom:20px;
 }
 
-.mainWeather {
-    background-color:red;
-    height:100px;
+#mainWeather {
+    width: 100vh;
+    height: 80vh;
+    margin-top:20px;
+    border-radius:5px;
+ 
+}
+
+#currentWeather {
+    width: 100vh;
+    height: 40vh;
+    border:2px solid grey;
+    padding:20px;
+}
+
+#fiveDayForecast{
+    background-color:green;
+    width: 100vh;
+    height: 40vh;
 }
