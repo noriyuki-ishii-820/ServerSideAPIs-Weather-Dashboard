@@ -25,3 +25,8 @@ body {
     color:white;
     margin-bottom:20px;
 }
+
+.mainWeather {
+    background-color:red;
+    height:100px;
+}
