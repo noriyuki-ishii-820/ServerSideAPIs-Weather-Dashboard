@@ -12,8 +12,14 @@ body {
     padding:20px;
 }
 
-.searchElement {
+#userInput {
     margin-bottom:20px;
+}
+
+button {
+    height:35px;
+    line-height:35px;
+    margin-bottom: 20px;
 }
 
 .title {
@@ -53,4 +59,12 @@ body {
     padding:10px;
     margin:10px;
     border-radius:5px;
+}
+
+#cityName {
+    font-size:30px;
+}
+
+#delete {
+    margin-left:10px;
 }

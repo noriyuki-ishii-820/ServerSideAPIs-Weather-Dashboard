@@ -4,6 +4,9 @@ var rawStoredArr = localStorage.getItem("cities");
 var storedArr = JSON.parse(rawStoredArr);
 var cityArr = storedArr;
 
+var today = moment().format("MMM Do YY");     
+console.log(today);
+
 // if the local storage is empty, load an empty array
 if (!storedArr){
     var cityArr = []
@@ -51,7 +54,7 @@ function buildQueryURL(){
         var windSpeed = response.wind.speed
         
         //display weather info
-        $("#cityName").text(citySearched + " , " + countryName);
+        $("#cityName").text(citySearched + ", " + countryName + " (" + today + ")");
         $("#temperature").text("Temperature : "+ temperature + " Celsius");
         $("#humidity").text("Humidity : " + humidity + " %");
         $("#windSpeed").text("Wind Speed : " + windSpeed + " meters/second(s)");
@@ -75,8 +78,8 @@ function buildQueryURL(){
 
                 if(uvIndexValue < 2) {  // when low
                     $("#uvText").css("background-color", "green");
-                } else if (uvIndexValue < 5) {   // when medium
-                    $("#uvText").css("background-color", "yellow");
+                } else if (uvIndexValue < 8) {   // when medium
+                    $("#uvText").css("background-color", "rgb(168, 166, 50)");
                 } else if (uvIndexValue < 12) { // when high
                     $("#uvText").css("background-color", "red");
                 }
@@ -135,4 +138,11 @@ function generateURL(){
        
 })
 
+// $("#delete").on("click", function(event){
+//     event.preventDefault();
+//     localStorage.clear();
+//     $(".list-group").empty();
+    
+
+// });
 
