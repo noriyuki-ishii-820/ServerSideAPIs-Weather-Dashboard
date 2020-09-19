@@ -39,10 +39,18 @@ body {
     height: 40vh;
     border:2px solid grey;
     padding:20px;
+    line-height:50px;
 }
 
 #fiveDayForecast{
     background-color:green;
     width: 100vh;
     height: 40vh;
+}
+
+#uvText {
+    color:white;
+    padding:10px;
+    margin:10px;
+    border-radius:5px;
 }

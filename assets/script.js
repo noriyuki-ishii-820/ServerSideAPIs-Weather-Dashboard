@@ -41,32 +41,51 @@ function buildQueryURL(){
         method:"GET"
     }).then(function(response){
 
-        console.log(citySearched);
-        console.log(queryURL);
+        // console.log(citySearched);
+        // console.log(queryURL);
 
+        // weather info except UV index
         var countryName = response.sys.country
         var temperature = (response.main.temp - 273.15).toFixed(2) // from kelvin (K) to celcius (C)
-    
         var humidity = response.main.humidity
         var windSpeed = response.wind.speed
-        //var uvIndex =  
-
+        
+        //display weather info
         $("#cityName").text(citySearched + " , " + countryName);
         $("#temperature").text("Temperature : "+ temperature + " Celsius");
         $("#humidity").text("Humidity : " + humidity + " %");
         $("#windSpeed").text("Wind Speed : " + windSpeed + " meters/second(s)");
 
+        // lon and lat info for retriving UV index
 
-       
+        var lon = response.coord.lon;
+        var lat = response.coord.lat;
 
-
+        var uvQueryURL = "http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon;
     
+            $.ajax({
+                url:uvQueryURL,
+                method:"GET"
+            }).then(function(response){
+                var uvIndexValue = response.value;
+                $("#uvIndex").prepend("UV Index : ");
+                $("#uvText").text(uvIndexValue);
 
-    
+                console.log(uvIndexValue);
+
+                if(uvIndexValue < 2) {  // when low
+                    $("#uvText").css("background-color", "green");
+                } else if (uvIndexValue < 5) {   // when medium
+                    $("#uvText").css("background-color", "yellow");
+                } else if (uvIndexValue < 12) { // when high
+                    $("#uvText").css("background-color", "red");
+                }
 
 
 
-})};
+            })         
+    })
+};
 
 
 function generateURL(){
