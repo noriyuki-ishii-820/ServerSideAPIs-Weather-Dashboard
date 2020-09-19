@@ -45,7 +45,7 @@ button {
     height: 40vh;
     border:2px solid grey;
     padding:20px;
-    line-height:50px;
+    line-height:30px;
     display:none;
 }
 
@@ -59,9 +59,12 @@ button {
 
 #uvText {
     color:white;
-    padding:10px;
-    margin:10px;
     border-radius:5px;
+}
+
+.uvIndex {
+    border-radius:5px;
+    padding:5px;
 }
 
 #cityName, #forecastHeader{
@@ -86,6 +89,7 @@ button {
     margin: 0px 5px;
     border-radius: 5px;
     display:none;
+    font-size:15px;
 }
 
 #day1, #day2, #day3, #day4, #day5 {
@@ -96,3 +100,4 @@ button {
     font-size:20px;
     font-weight:bold;
 }
+
