@@ -5,7 +5,6 @@ var storedArr = JSON.parse(rawStoredArr);
 var cityArr = storedArr;
 
 var today = moment().format("MMM Do YY");     
-console.log(today);
 
 // if the local storage is empty, load an empty array
 if (!storedArr){
@@ -45,16 +44,22 @@ function buildQueryURL(){
     }).then(function(response){
 
         // console.log(citySearched);
-        // console.log(queryURL);
+        console.log(queryURL);
 
         // weather info except UV index
-        var countryName = response.sys.country
-        var temperature = (response.main.temp - 273.15).toFixed(2) // from kelvin (K) to celcius (C)
-        var humidity = response.main.humidity
-        var windSpeed = response.wind.speed
+        var countryName = response.sys.country;
+        var weatherIcon = response.weather[0].icon;
+        var iconURL = "http://openweathermap.org/img/wn/" + weatherIcon + ".png";
+        var temperature = (response.main.temp - 273.15).toFixed(2); // from kelvin (K) to celcius (C)
+        var humidity = response.main.humidity;
+        var windSpeed = response.wind.speed;
         
+        var iconImg = $("<img>"); //create image tag for the weather icon
+
         //display weather info
         $("#cityName").text(citySearched + ", " + countryName + " (" + today + ")");
+        iconImg.attr("src", iconURL);
+        $("#cityName").append(iconImg);
         $("#temperature").text("Temperature : "+ temperature + " Celsius");
         $("#humidity").text("Humidity : " + humidity + " %");
         $("#windSpeed").text("Wind Speed : " + windSpeed + " meters/second(s)");
@@ -72,9 +77,7 @@ function buildQueryURL(){
             }).then(function(response){
                 var uvIndexValue = response.value;
                 $("#uvIndex").prepend("UV Index : ");
-                $("#uvText").text(uvIndexValue);
-
-                console.log(uvIndexValue);
+                $("#uvText").text(uvIndexValue);  
 
                 if(uvIndexValue < 2) {  // when low
                     $("#uvText").css("background-color", "green");
