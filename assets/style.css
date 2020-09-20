@@ -14,13 +14,17 @@ body {
 
 #userInput {
     margin-bottom:20px;
+    height:40px;
+    width:65%;
 }
 
 button {
-    height:35px;
+    height:auto;
+    width:40px;
     line-height:35px;
     margin-bottom: 20px;
 }
+
 
 .title {
     display: flex;
@@ -41,8 +45,6 @@ button {
 }
 
 #currentWeather {
-    width: 100vh;
-    height: 40vh;
     border:2px solid grey;
     padding:20px;
     line-height:30px;
@@ -50,7 +52,6 @@ button {
 }
 
 #fiveDayForecast{
-    width: 100vh;
     height: 40vh;
     padding:20px;
     line-height:50px;
@@ -72,9 +73,6 @@ button {
     font-size:30px;
 }
 
-#delete {
-    margin-left:10px;
-}
 
 .weatherBox {
     width:90%;
@@ -82,7 +80,7 @@ button {
   
 }
 
-.col-2 {
+.col {
     background:#007bff;
     font:white;
     height:25vh;
@@ -90,14 +88,14 @@ button {
     border-radius: 5px;
     display:none;
     font-size:15px;
+    padding:10px;
+    margin-bottom:4px;
 }
 
 #day1, #day2, #day3, #day4, #day5 {
     color:white;
+    font-size:13px;
+
 }
 
-.dayHeader {
-    font-size:20px;
-    font-weight:bold;
-}
 

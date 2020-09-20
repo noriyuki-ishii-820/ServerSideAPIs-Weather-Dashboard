@@ -3,14 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
+    <!-- font awesome CDN-->
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+    <!-- bootsrap CSS-->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    
+
     <link rel="stylesheet" href="assets/style.css" />
 
     <title>Document</title>
@@ -18,65 +27,63 @@
   <body>
     <h1 class="title">Weather Dashboard</h1>
 
-    <div class="container">
+    <main class="container">
       <div class="row">
-        <div class="col-3 sideBar">
+        <section class="col-3 sideBar">
             <form class="searchElement">
-                <div class="form-inline">
-                    <label for="cityName">Search for a City:</label>
-                    <input type="text" class="form-control" id="userInput">
-                    <button type="submit" id="search" class="btn btn-primary">
-                        <svg width="1.5em" height="1.5em" weight="storng" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-                        </svg>
-                    </button>
-                </div>
+              <div class="form-inline">
+                <label for="cityName">Search for a City:</label>
+                <input type="text" class="form-control" id="userInput" placeholder="E.g: Tokyo, London, Sydney"/>
+                <button type="submit" id="search" class="btn btn-primary">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button type="submit" id="delete" class="btn btn-danger">
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
             </form>
 
-          <div class="searchedCityList">
-            <!-- where the searched cities go in a list-->
+            <div class="searchedCityList">
+              <!-- where the searched cities go in a list-->
               <ul class="list-group"></ul>
-          </div>
+            </div>
+        </section>
 
-        </div>
+        <section class="col-8" id="mainWeather">
+            <article id="currentWeather">
+              <!-- where the searched city weather detail goes-->
+              <p id="cityName"></p>
+              <p id="temperature"></p>
+              <p id="humidity"></p>
+              <p id="windSpeed"></p>
+              <p id="uvIndex"></p>
+            </article>
 
-        <div class="col-8" id="mainWeather">
-              <div id="currentWeather"> <!-- where the searched city weather detail goes-->
-                  <p id="cityName"></p>
-                  <p id="temperature"></p>
-                  <p id="humidity"></p>
-                  <p id="windSpeed"></p>
-                  <p id="uvIndex"></p>
-              </div>
+            <article id="fiveDayForecast">
+              <div id="forecastHeader"></div>
+              <div class="row justify-content-center">
+                <!-- where the forecast goes-->
+                <div class="col">
+                  <div id="day1"></div>
+                </div>
+                <div class="col">
+                  <div id="day2"></div>
+                </div>
+                <div class="col">
+                  <div id="day3"></div>
+                </div>
 
-              <div id="fiveDayForecast" class="container">
-                <div id="forecastHeader"></div>
-                  <div class="row justify-content-center">
-                      <!-- where the forecast goes-->
-                      <div class="col-2">
-                        <div id="day1"></div>
-                      </div>
-                      <div class="col-2">
-                        <div id="day2"></div>
-                      </div>
-                      <div class="col-2">
-                        <div id="day3"></div>
-                      </div>
+                <div class="col">
+                  <div id="day4"></div>
+                </div>
 
-                      <div class="col-2">
-                        <div id="day4"></div>
-                      </div>
-
-                      <div class="col-2">
-                        <div id="day5"></div>
-                      </div>
-
-                  </div>
-              </div>
-        </div>
+                <div class="col">
+                  <div id="day5"></div>
+                </div>
+            </article>
+        </section>
       </div>
-    </div>
+    </main>
 
     <!-- Bootstrap-->
     <script

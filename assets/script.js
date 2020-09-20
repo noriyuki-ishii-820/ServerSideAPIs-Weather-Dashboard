@@ -187,7 +187,7 @@ function displayWeather(citySearched){
     })
 
     $("#currentWeather").css("display","block");
-    $(".col-2").css("display","block"); 
+    $(".col").css("display","block"); 
 };
 
 
@@ -242,12 +242,16 @@ $(".list-group").on("click", "li", function(event){
     displayWeather(citySearched);
 });
 
+$("#delete").on("click", function(event){
+    event.preventDefault();
 
-// $("#delete").on("click", function(event){
-//     event.preventDefault();
-//     localStorage.clear();
-//     $(".list-group").empty();
-    
+    if (confirm("Would you like to delete all the search results?")){
+    localStorage.clear();
+    location.reload();
+    } else {
+        return false;
+    }
 
-// });
+})
+
 
