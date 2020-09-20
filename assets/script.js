@@ -202,6 +202,7 @@ function displayWeather(citySearched){
         cityArr.push(citySearched);
         }
 
+
         // save in local storage
 
         localStorage.setItem("cities", JSON.stringify(cityArr));

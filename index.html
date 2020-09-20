@@ -22,14 +22,14 @@
 
     <link rel="stylesheet" href="assets/style.css" />
 
-    <title>Document</title>
+    <title>Weather Dashboard</title>
   </head>
   <body>
     <h1 class="title">Weather Dashboard</h1>
 
     <main class="container">
       <div class="row">
-        <section class="col-3 sideBar">
+        <section class="col-4 sideBar">
             <form class="searchElement">
               <div class="form-inline">
                 <label for="cityName">Search for a City:</label>
@@ -60,24 +60,26 @@
             </article>
 
             <article id="fiveDayForecast">
-              <div id="forecastHeader"></div>
+              <div class="row">
+               <div id="forecastHeader"></div>
+              </div>
               <div class="row justify-content-center">
                 <!-- where the forecast goes-->
-                <div class="col">
+                <div class="col ml-3 mb-3">
                   <div id="day1"></div>
                 </div>
-                <div class="col">
+                <div class="col ml-3 mb-3">
                   <div id="day2"></div>
                 </div>
-                <div class="col">
+                <div class="col ml-3 mb-3">
                   <div id="day3"></div>
                 </div>
 
-                <div class="col">
+                <div class="col ml-3 mb-3">
                   <div id="day4"></div>
                 </div>
 
-                <div class="col">
+                <div class="col ml-3 mb-3">
                   <div id="day5"></div>
                 </div>
             </article>
