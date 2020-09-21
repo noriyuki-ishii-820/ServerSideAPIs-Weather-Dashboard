@@ -18,8 +18,6 @@ if (!storedArr){
 
 $(document).ready(function(){
 
-    // console.log(rawStoredArr);
-    // console.log(storedArr);
     if (storedArr !== false) {
     for (var i = 0; i < storedArr.length; i++){
         var li = $("<li>");
@@ -44,14 +42,20 @@ function displayWeather(citySearched){
     $.ajax({
         url:queryURL,
         method:"GET",
-        // statusCode: {
-        //     404: function(){
-        //         alert("Error: the city does not seem to exist. please try again.");
-        //         return false;
-        //     }
+        statusCode: {
+            404: function(){
+                alert("Error: the city does not seem to exist. please try again.");
+                $("#userInput").val('');
+                cityArr.splice(-1);
+                console.log(cityArr);
+                $('.list-group-item:last-child').remove();
+                localStorage.setItem("cities", JSON.stringify(cityArr));
+                return;
 
-        // }
-    }).then(function(response){
+            },
+
+    
+    }}).then(function(response){
 
         // weather info except UV index
         var countryName = response.sys.country;
@@ -208,14 +212,9 @@ function displayWeather(citySearched){
             alert("Your input is not valid. Please try again!");
             $("#userInput").val('');
             return false;
-        } else if (statusCode = 404){
-            alert ("Error: the city does not seem to exist.")
-            $("#userInput").val('');
-            return false;
         } else {
         cityArr.push(citySearched);
         }
-
 
         // save in local storage
 
