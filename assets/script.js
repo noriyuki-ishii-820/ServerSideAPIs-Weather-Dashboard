@@ -43,7 +43,14 @@ function displayWeather(citySearched){
 
     $.ajax({
         url:queryURL,
-        method:"GET"
+        method:"GET",
+        // statusCode: {
+        //     404: function(){
+        //         alert("Error: the city does not seem to exist. please try again.");
+        //         return false;
+        //     }
+
+        // }
     }).then(function(response){
 
         // weather info except UV index
@@ -87,7 +94,9 @@ function displayWeather(citySearched){
                 } else if (uvIndexValue < 20) { // when high
                     $(".uvIndex").css("background-color","red");
                 }
-            })         
+            }) 
+            
+            
     })
     
     var queryURL3 = "http://api.openweathermap.org/data/2.5/forecast?q=" + citySearched + "&appid=" + apiKey;
@@ -197,7 +206,12 @@ function displayWeather(citySearched){
 
         if(!citySearched){
             alert("Your input is not valid. Please try again!");
-            return;
+            $("#userInput").val('');
+            return false;
+        } else if (statusCode = 404){
+            alert ("Error: the city does not seem to exist.")
+            $("#userInput").val('');
+            return false;
         } else {
         cityArr.push(citySearched);
         }
