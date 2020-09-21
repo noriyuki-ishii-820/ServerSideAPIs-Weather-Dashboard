@@ -51,10 +51,9 @@ function displayWeather(citySearched){
                 $('.list-group-item:last-child').remove();
                 localStorage.setItem("cities", JSON.stringify(cityArr));
                 return;
-
             },
 
-    
+
     }}).then(function(response){
 
         // weather info except UV index
@@ -208,11 +207,11 @@ function displayWeather(citySearched){
         event.preventDefault();
         var citySearched = $("#userInput").val().trim();
 
-        if(!citySearched){
+        if(!citySearched){ // when the input is empty/invalid, return false
             alert("Your input is not valid. Please try again!");
             $("#userInput").val('');
             return false;
-        } else {
+        } else { // if valid, push the value into the array
         cityArr.push(citySearched);
         }
 
@@ -225,36 +224,30 @@ function displayWeather(citySearched){
         $(".list-group").empty();
 
         //create the list of cities searched
-        if (!citySearched) {
-            alert("Your input is not valid. Please try again!");
-        } else {
-            for (var i = 0; i < cityArr.length; i++){
-                var li = $("<li>");
-                li.addClass("list-group-item");
-                li.text(cityArr[i]);
-                $(".list-group").append(li);
-        };
-
-            $(".list-group-item").on("click", function(event){
-                event.preventDefault();
-                displayWeather(citySearched);
-        })
-
-        }
-
+         for (var i = 0; i < cityArr.length; i++){
+            var li = $("<li>");
+            li.addClass("list-group-item");
+            li.text(cityArr[i]);
+            $(".list-group").append(li);
+      
         // run the function to display weather
         displayWeather(citySearched);
 
          // clears the text input 
         $("#userInput").val('');
-       
+            
+    }
 });
+
+// search the weather from the history
 
 $(".list-group").on("click", "li", function(event){
     event.preventDefault();
     var citySearched = $(this).text();
     displayWeather(citySearched);
 });
+
+// delete button
 
 $("#delete").on("click", function(event){
     event.preventDefault();
