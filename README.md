@@ -5,6 +5,19 @@ Developers are often tasked with retrieving data from another application's API 
 I have used the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. 
 
 
+## Screenshots
+
+Screenshot1) UI. the user is given the textarea to input the city name.
+![](weather1.png)
+
+Screenshot2) the app outputs the current weather and 5-day forecast. 
+![](weather2.png)
+
+Screenshot3) the app stores the search history. the Delete button would erase all history as well. 
+![](weather3.png)
+
+
+
 ## Tech used
 
 - HTML
@@ -18,3 +31,10 @@ I have used the [OpenWeather API](https://openweathermap.org/api) to retrieve we
 ## Deployment
 
 https://noriyuki-ishii-820.github.io/ServerSideAPIs-Weather-Dashboard/
+
+## Lisence
+
+MIT 
+
+## Contact
+contact me via Linkedin: https://www.linkedin.com/in/ishiinoriyuki/
