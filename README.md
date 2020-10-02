@@ -37,4 +37,4 @@ https://noriyuki-ishii-820.github.io/ServerSideAPIs-Weather-Dashboard/
 MIT 
 
 ## Contact
-contact me via Linkedin: https://www.linkedin.com/in/ishiinoriyuki/
+email me! nishii.dev.syd@gmail.com
